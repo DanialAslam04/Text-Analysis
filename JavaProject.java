@@ -84,7 +84,9 @@ t2.setText("	    "+"Total Words:"+words+"		"+"Total Characters:"+chr);
 clear.addActionListener(new ActionListener()
 {
 public void actionPerformed(ActionEvent ae){
-t1.setText(" ");
+t1.setText("");
+t2.requestFocusInWindow();// to get focus of text area
+t2.setText("	    "+"Total Words:"+0+"		"+"Total Characters:"+0);
 }
 });
 
