@@ -8,9 +8,11 @@ class screen{
 JTextArea t1;
 JTextArea t2;
 
-JButton SA,UpperC,LowerC,Analys,clear,save,close;
+JButton SA,UpperC,LowerC,Analys,clear,restore,save,close;
 JLabel l1;
 String s1;
+String s2;
+
 
 screen(){
 JFrame j=new JFrame("Text Editor");
@@ -34,6 +36,7 @@ UpperC=new JButton("UPPER CASE");
 LowerC=new JButton("LOWER CASE");
 Analys=new JButton("ANALYSIS");
 clear=new JButton("CLEAR");
+restore= new JButton("RESTORE");
 save=new JButton("SAVE");
 close=new JButton("CLOSE");
 
@@ -84,11 +87,21 @@ t2.setText("	    "+"Total Words:"+words+"		"+"Total Characters:"+chr);
 clear.addActionListener(new ActionListener()
 {
 public void actionPerformed(ActionEvent ae){
+s1=t1.getText();
+s2=s1;//making copy of data
 t1.setText("");
 t2.requestFocusInWindow();// to get focus of text area
 t2.setText("	    "+"Total Words:"+0+"		"+"Total Characters:"+0);
 }
 });
+
+restore.addActionListener(new ActionListener()
+{
+public void actionPerformed(ActionEvent ae){
+t1.setText(s2);
+}
+});
+
 
 save.addActionListener(new ActionListener()
 {
@@ -128,6 +141,7 @@ p.add(UpperC);
 p.add(LowerC);
 p.add(Analys);
 p.add(clear);
+p.add(restore);
 p.add(save);
 p.add(close);
 p.add(t2,BorderLayout.WEST);
